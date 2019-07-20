@@ -1,0 +1,19 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+      "version": "0.0.1",
+      "title": "Serpent Tracker API",
+      "description": "Swagger spec for documenting Serpent Tracker API"
+    },
+    "servers": [
+      {
+        "url": "http://localhost"
+      }
+    ],
+    "paths": {
+    },
+    "components": {
+      "schemas": {
+      }
+    }
+  }
