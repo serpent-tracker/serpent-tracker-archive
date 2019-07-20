@@ -1,5 +1,6 @@
 # Serpent Tracker Microservices 
 [![Build Status](https://travis-ci.com/serpent-tracker/serpent-tracker.svg?branch=develop)](https://travis-ci.com/serpent-tracker/serpent-tracker)
+[![codecov](https://codecov.io/gh/serpent-tracker/serpent-tracker/branch/develop/graph/badge.svg)](https://codecov.io/gh/serpent-tracker/serpent-tracker)
 
 The code for all services of serpent tracker
 
