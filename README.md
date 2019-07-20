@@ -209,9 +209,9 @@ This command will spin up our application on the docker host:
 
 Now create and seed the database:
 
-`docker-compose -f docker-compose-prod.yml run serpentapi python manage.py recreate-db`
+`docker-compose -f docker-compose-prod.yml run users python manage.py recreate_db`
 
-`docker-compose -f docker-compose-prod.yml run serpentapi python manage.py seed-db`
+`docker-compose -f docker-compose-prod.yml run users python manage.py seed_db`
 
 Ensure port 80 is allowed in the AWS security group for this container via the AWS console EC2 section - Will automate this soon.
 
