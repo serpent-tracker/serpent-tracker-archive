@@ -22,7 +22,7 @@ Table of Contents
       * [Start Up Docker Container](#start-up-docker-container)
 
 # Documentation
-Coming soon...
+Docs can be found at [https://serpent-tracker.readthedocs.io](https://serpent-tracker.readthedocs.io)
 
 # Topology
 ![](serpenttracker-topology.png)
@@ -132,11 +132,11 @@ Test it works:
 ## Database Migrations
 If doing local development for flask and you do database changes in the models the below commands can help like migrate and upgrade to update the db.
 
-Init - `docker-compose -f docker-compose-dev.yml run serpentapi python manage.py db init`
+Init - `docker-compose -f docker-compose-dev.yml run users python manage.py db init`
 
-Migrate - `docker-compose -f docker-compose-dev.yml run serpentapi python manage.py db migrate`
+Migrate - `docker-compose -f docker-compose-dev.yml run users python manage.py db migrate`
 
-Upgrade - `docker-compose -f docker-compose-dev.yml run serpentapi python manage.py db upgrade`
+Upgrade - `docker-compose -f docker-compose-dev.yml run users python manage.py db upgrade`
 
 
 # Staging Setup
@@ -209,9 +209,9 @@ This command will spin up our application on the docker host:
 
 Now create and seed the database:
 
-`docker-compose -f docker-compose-prod.yml run users python manage.py recreate_db`
+`docker-compose -f docker-compose-prod.yml run users python manage.py recreate-db`
 
-`docker-compose -f docker-compose-prod.yml run users python manage.py seed_db`
+`docker-compose -f docker-compose-prod.yml run users python manage.py seed-db`
 
 Ensure port 80 is allowed in the AWS security group for this container via the AWS console EC2 section - Will automate this soon.
 
