@@ -15,7 +15,7 @@ COPY . /usr/src/app
 
 # add and install requirements
 RUN pip install pipenv
-RUN pipenv install $(test "FLASK_ENV" == production || echo "--dev") --deploy --system --ignore-pipfile
+RUN pipenv install $(test "$FLASK_ENV" == production || echo "--dev") --deploy --system --ignore-pipfile
 
 # make entrypoint.sh writable
 RUN chmod +x /usr/src/app/entrypoint.sh
