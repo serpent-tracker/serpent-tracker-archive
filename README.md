@@ -1,5 +1,22 @@
+<<<<<<< HEAD
 # Serpent Tracker Microservices 
 [![Build Status](https://travis-ci.com/serpent-tracker/serpent-tracker.svg?branch=staging)](https://travis-ci.com/serpent-tracker/serpent-tracker)
+=======
+# Serpent Tracker Microservices
+**Build & Coverage Statuses:**
+
+Develop: 
+[![Build Status](https://travis-ci.com/serpent-tracker/serpent-tracker.svg?branch=develop)](https://travis-ci.com/serpent-tracker/serpent-tracker)
+[![codecov](https://codecov.io/gh/serpent-tracker/serpent-tracker/branch/develop/graph/badge.svg)](https://codecov.io/gh/serpent-tracker/serpent-tracker)
+
+Staging:
+[![Build Status](https://travis-ci.com/serpent-tracker/serpent-tracker.svg?branch=staging)](https://travis-ci.com/serpent-tracker/serpent-tracker)
+[![codecov](https://codecov.io/gh/serpent-tracker/serpent-tracker/branch/staging/graph/badge.svg)](https://codecov.io/gh/serpent-tracker/serpent-tracker)
+
+Production:
+[![Build Status](https://travis-ci.com/serpent-tracker/serpent-tracker.svg?branch=production)](https://travis-ci.com/serpent-tracker/serpent-tracker)
+[![codecov](https://codecov.io/gh/serpent-tracker/serpent-tracker/branch/production/graph/badge.svg)](https://codecov.io/gh/serpent-tracker/serpent-tracker)
+>>>>>>> develop
 
 The code for all services of serpent tracker
 
