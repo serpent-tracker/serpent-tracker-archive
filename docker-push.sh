@@ -6,11 +6,11 @@ then
   if [[ "$TRAVIS_BRANCH" == "staging" ]]; then
     export DOCKER_ENV=stage
     export REACT_APP_USERS_SERVICE_URL=$STAGING_ALB
-    python services/swagger/update-spec.py $STAGING_ALB
+    python services/swagger/update-spec.py http://$STAGING_ALB
   elif [[ "$TRAVIS_BRANCH" == "production" ]]; then
     export REACT_APP_USERS_SERVICE_URL=$PROD_ALB
     export DOCKER_ENV=prod
-    python services/swagger/update-spec.py $PROD_ALB
+    python services/swagger/update-spec.py http://$PROD_ALB
   fi
 
   if [ "$TRAVIS_BRANCH" == "staging" ] || \
