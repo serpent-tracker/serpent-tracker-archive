@@ -1,19 +1,186 @@
 {
-    "openapi": "3.0.2",
-    "info": {
-      "version": "0.0.1",
-      "title": "Serpent Tracker API",
-      "description": "Swagger spec for documenting Serpent Tracker API"
-    },
-    "servers": [
-      {
-        "url": "http://localhost"
+  "openapi": "3.0.2",
+  "info": {
+    "version": "0.0.1",
+    "title": "Serpent Tracker API",
+    "description": "Swagger spec for documenting Serpent Tracker API"
+  },
+  "servers": [
+    {
+      "url": "http://localhost"
+    }
+  ],
+  "paths": {
+    "/api/users/health": {
+      "get": {
+        "summary": "Healthcheck for users service",
+        "responses": {
+          "200": {
+            "description": "Will return 'Users API Alive, sssuccess!'"
+          }
+        }
       }
-    ],
-    "paths": {
     },
-    "components": {
-      "schemas": {
+    "/api/users": {
+      "get": {
+        "summary": "Returns all users",
+        "responses": {
+          "200": {
+            "description": "user object"
+          }
+        }
+      },
+      "post": {
+        "summary": "Adds a new user",
+        "requestBody": {
+          "description": "User to add",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user-full"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User added"
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "summary": "Returns a user based on a single user ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user to fetch",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user object"
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "summary": "Creates a new user",
+        "requestBody": {
+          "description": "User to add",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user-full"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "user object"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Logs a user in",
+        "requestBody": {
+          "description": "User to log in",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully logged in"
+          }
+        }
+      }
+    },
+    "/api/auth/status": {
+      "get": {
+        "summary": "Returns the logged in user's status",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user object"
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "get": {
+        "summary": "Logs a user out",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully logged out"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "user": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "user-full": {
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
       }
     }
   }
+}
