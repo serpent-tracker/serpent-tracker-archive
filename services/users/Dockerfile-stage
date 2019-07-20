@@ -17,7 +17,7 @@ RUN pip install pipenv
 RUN pipenv install $(test "FLASK_ENV" == stage || echo "--dev") --deploy --system --ignore-pipfile
 
 # make entrypoint.sh writable
-RUN chmod +x /usr/src/app/entrypoint.sh
+RUN chmod +x /usr/src/app/entrypoint-stage.sh
 
 # run server
 CMD ["/usr/src/app/entrypoint-stage.sh"]
