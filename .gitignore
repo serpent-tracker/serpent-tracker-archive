@@ -1,0 +1,5 @@
+__pycache__
+env
+htmlcov
+.DS_Store
+node_modules

@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  build:
+    commands:
+      - echo Now starting up docker compose for testing
+      - docker-compose up -d
+      - echo Will now start test phase
+      - docker-compose exec users python manage.py test
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Would tag and push build here

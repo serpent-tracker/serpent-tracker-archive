@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+
+  users:
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_ENV=production
+      - APP_SETTINGS=project.config.ProductionConfig
+      - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_prod
+      - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test
+    depends_on:
+      - users-db
+
+  users-db:
+    build:
+      context: ./project/db
+      dockerfile: Dockerfile
+    ports:
+      - 5435:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  nginx:
+    image: 860867269765.dkr.ecr.us-east-1.amazonaws.com/nginx:users
+    restart: always
+    pull: Always
+    ports:
+      - 80:80
+    depends_on: 
+      - users
