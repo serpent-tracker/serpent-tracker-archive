@@ -9,7 +9,7 @@ env:
   MAIN_REPO: https://github.com/serpent-tracker/serpent-tracker.git
   USERS: serpent-tracker-users
   USERS_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/users
-  USERS_DB: serepent-tracker-users_db
+  USERS_DB: serpent-tracker-users_db
   USERS_DB_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/users/project/db
   CLIENT: serpent-tracker-client
   CLIENT_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/client
